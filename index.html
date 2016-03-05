@@ -99,6 +99,7 @@
           dataType:'jsonp',
           crossDomain:true,
           success:function(e){
+            alert(e);
               var json = JSON.parse(e);
               var err_code = json.err_code;
               var message = json.message;
