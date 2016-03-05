@@ -103,8 +103,7 @@
               var err_code = json.err_code;
               var message = json.message;
               if(err_code==0){
-                alert(12);
-                  showPageView(json.data.pageview);
+                  showPageView(json.data.page_view);
                   return true;
               }else{ 
                   showPageView(0);
