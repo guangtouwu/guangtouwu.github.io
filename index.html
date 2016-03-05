@@ -95,7 +95,6 @@
           url:"http://123.56.118.120/?r=stat/pageview&callback=getlistdata",
           data:{"article_id":article_id},
           type:"post",
-          jsonpCallback:"getlistdata",
           dataType: 'jsonp',
           success:function(e){
               var json = JSON.parse(e);
