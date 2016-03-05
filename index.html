@@ -92,9 +92,10 @@
     $(function() {
       var article_id = 1;
       $.ajax({
-          url:"http://123.56.118.120/?r=stat/pageview",
+          url:"http://123.56.118.120/?r=stat/pageview&callback=getlistdata",
           data:{"article_id":article_id},
           type:"post",
+          jsonpCallback:"getlistdata",
           success:function(e){
               var json = JSON.parse(e);
               var err_code = json.err_code;
