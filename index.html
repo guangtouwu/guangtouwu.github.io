@@ -99,11 +99,11 @@
           dataType:'jsonp',
           crossDomain:true,
           success:function(e){
-            
-              var json = JSON.parse(e);
+              alert(e.err_code);
+              //var json = JSON.parse(e);
               var err_code = json.err_code;
               var message = json.message;
-              alert(err_code);
+              
               if(err_code==0){
                 alert(12);
                   showPageView(12);
