@@ -96,6 +96,7 @@
           data:{"article_id":article_id},
           type:"post",
           jsonpCallback:"getlistdata",
+          dataType: 'jsonp',
           success:function(e){
               var json = JSON.parse(e);
               var err_code = json.err_code;
