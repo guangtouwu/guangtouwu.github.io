@@ -13,6 +13,7 @@
     <section class="page-header">
       <h1 class="project-name">万事开头第一篇</h1>
       <h2 class="project-tagline">开篇自勉，坚持为上</h2>
+      <p style="margin-left:6px">当前访问量：<span id="page_view"></span></p>
     </section>
 
     <section class="main-content">
@@ -79,4 +80,29 @@
 
   
   </body>
+  <script>
+    function showPageView(count){
+      $("#page_view").html('&nbsp;&nbsp;<font color="red">'+count+'</font>');
+    }
+    $(function() {
+      var aticle_id = 1;
+      $.ajax({
+          url:"http://123.56.118.120/?r=stat/pageview",
+          data:{"article_id":article_id},
+          type:"post",
+          success:function(e){
+              var json = JSON.parse(e);
+              var err_code = json.err_code;
+              var message = json.message;
+              if(err_code==0){
+                  showPageView(json.data.page_view);
+                  return true;
+              }else{ 
+                  showPageView(0);
+                  return false;
+              }
+          }
+      });
+    }
+  </script>
 </html>
