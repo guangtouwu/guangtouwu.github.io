@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <meta http-equiv="content-script-type" content="text/javascript">
     <script type="text/javascript" src="http://123.56.118.120/static/mobile/js/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/pageview.js"></script>
   </head>
   <body>
     <section class="page-header">
@@ -73,35 +74,6 @@
 
   <iframe src="footer.html" frameborder="0"></iframe>
 
-    </section>
-
-  
+  </section>
   </body>
-  <script type="text/javascript">
-    function showPageView(count){
-      $("#page_view").html('&nbsp;&nbsp;<font color="red">'+count+'</font>');
-    }
-    $(function() {
-      var article_id = 1;
-      $.ajax({
-          url:"http://123.56.118.120/?r=stat/pageview",
-          data:{"article_id":article_id},
-          type:"post",
-          dataType:'jsonp',
-          crossDomain:true,
-          success:function(e){
-              var json = e;
-              var err_code = json.err_code;
-              var message = json.message;
-              if(err_code==0){
-                  showPageView(json.data.page_view);
-                  return true;
-              }else{ 
-                  showPageView(0);
-                  return false;
-              }
-          }
-      });
-    });
-  </script>
 </html>
